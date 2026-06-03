@@ -1,2 +1,15 @@
-# calculator
-A fully functional calculator built using vanilla JavaScript, featuring a modern UI, responsive design, and efficient arithmetic operations.
+# Calculator App
+
+A modern and responsive calculator application built using HTML, CSS, and JavaScript.
+
+## Features
+- Basic arithmetic operations (+, -, ×, ÷)
+- Responsive design
+- Clean and modern UI
+- Fast calculations
+- Beginner-friendly code structure
+
+## Technologies Used
+- HTML5
+- CSS3
+- JavaScript

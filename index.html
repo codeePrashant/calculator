@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic meta tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator | Prashant Kushwaha</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Our stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       MAIN CALCULATOR WRAPPER
+  ============================================= -->
+  <div class="page-wrapper">
+
+    <!-- Back link -->
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+    <!-- Calculator card -->
+    <div class="calculator">
+
+      <!-- ── DISPLAY AREA ── -->
+      <div class="display">
+
+        <!-- History (shows previous calculation) -->
+        <div class="display-history" id="history"></div>
+
+        <!-- Mode label (Basic / Scientific) -->
+        <div class="display-mode" id="mode-label">Basic</div>
+
+        <!-- Main expression shown while typing -->
+        <div class="display-expression" id="expression">0</div>
+
+        <!-- Result shown after = -->
+        <div class="display-result" id="result"></div>
+
+      </div><!-- /display -->
+
+      <!-- ── TOGGLE BUTTONS ── -->
+      <div class="toggle-row">
+        <button class="toggle-btn active" id="btn-basic"      onclick="switchMode('basic')">Basic</button>
+        <button class="toggle-btn"        id="btn-scientific" onclick="switchMode('scientific')">Scientific</button>
+        <button class="toggle-btn"        id="btn-history"    onclick="switchMode('history')">History</button>
+      </div>
+
+      <!-- ── SCIENTIFIC BUTTONS (hidden by default) ── -->
+      <div class="sci-buttons" id="sci-buttons">
+        <button class="btn-sci" onclick="inputSci('Math.sin(')">sin</button>
+        <button class="btn-sci" onclick="inputSci('Math.cos(')">cos</button>
+        <button class="btn-sci" onclick="inputSci('Math.tan(')">tan</button>
+        <button class="btn-sci" onclick="inputSci('Math.log10(')">log</button>
+        <button class="btn-sci" onclick="inputSci('Math.log(')">ln</button>
+        <button class="btn-sci" onclick="inputSci('Math.sqrt(')">√</button>
+        <button class="btn-sci" onclick="inputSci('Math.PI')">π</button>
+        <button class="btn-sci" onclick="inputSci('**2')">x²</button>
+        <button class="btn-sci" onclick="inputSci('**')">xⁿ</button>
+        <button class="btn-sci" onclick="inputSci('Math.abs(')">|x|</button>
+      </div>
+
+      <!-- ── HISTORY PANEL (hidden by default) ── -->
+      <div class="history-panel" id="history-panel">
+        <div class="history-header">
+          <span>Calculation History</span>
+          <button onclick="clearHistory()" class="clear-hist-btn">Clear</button>
+        </div>
+        <!-- History items added here by JavaScript -->
+        <div class="history-list" id="history-list">
+          <p class="history-empty">No history yet.</p>
+        </div>
+      </div>
+
+      <!-- ── BASIC BUTTONS GRID ── -->
+      <div class="buttons-grid" id="basic-buttons">
+
+        <!-- Row 1: Clear, Delete, %, Divide -->
+        <button class="btn btn-function" onclick="clearAll()">AC</button>
+        <button class="btn btn-function" onclick="deleteLast()">⌫</button>
+        <button class="btn btn-function" onclick="inputChar('%')">%</button>
+        <button class="btn btn-operator" onclick="inputChar('/')">÷</button>
+
+        <!-- Row 2: 7 8 9 × -->
+        <button class="btn btn-number" onclick="inputChar('7')">7</button>
+        <button class="btn btn-number" onclick="inputChar('8')">8</button>
+        <button class="btn btn-number" onclick="inputChar('9')">9</button>
+        <button class="btn btn-operator" onclick="inputChar('*')">×</button>
+
+        <!-- Row 3: 4 5 6 - -->
+        <button class="btn btn-number" onclick="inputChar('4')">4</button>
+        <button class="btn btn-number" onclick="inputChar('5')">5</button>
+        <button class="btn btn-number" onclick="inputChar('6')">6</button>
+        <button class="btn btn-operator" onclick="inputChar('-')">−</button>
+
+        <!-- Row 4: 1 2 3 + -->
+        <button class="btn btn-number" onclick="inputChar('1')">1</button>
+        <button class="btn btn-number" onclick="inputChar('2')">2</button>
+        <button class="btn btn-number" onclick="inputChar('3')">3</button>
+        <button class="btn btn-operator" onclick="inputChar('+')">+</button>
+
+        <!-- Row 5: +/- 0 . = -->
+        <button class="btn btn-number" onclick="toggleSign()">+/−</button>
+        <button class="btn btn-number" onclick="inputChar('0')">0</button>
+        <button class="btn btn-number" onclick="inputChar('.')">.</button>
+        <button class="btn btn-equals"  onclick="calculate()">=</button>
+
+      </div><!-- /buttons-grid -->
+
+    </div><!-- /calculator -->
+
+    <!-- Credit -->
+    <p class="credit">Built by <strong>Prashant Kushwaha</strong></p>
+
+  </div><!-- /page-wrapper -->
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
